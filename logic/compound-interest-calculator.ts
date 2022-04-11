@@ -1,17 +1,17 @@
-export type compoundFrequency =
+export type CompoundFrequency =
   | "monthly"
   | "quarterly"
   | "semi-annually"
   | "annually";
 
-export type deposit = "start" | "end";
+export type Deposit = "start" | "end";
 
 export function calculateCompoundInterest(
   initial: number,
   monthly: number,
   interest: number,
   time: number,
-  frequency: compoundFrequency
+  frequency: CompoundFrequency
   // deposit: deposit
 ) {
   const totalMonths = time * 12;
@@ -20,7 +20,7 @@ export function calculateCompoundInterest(
 
   let intervalBalance = [initial];
   for (let i = 0; i < totalMonths; i++) {
-    intervalBalance[i] = total + monthly;
+    intervalBalance[i] = total = total + monthly;
 
     if ((i + 1) % compoundInterval === 0) {
       const intervalAverage =
@@ -38,7 +38,7 @@ export function calculateCompoundInterest(
   return total;
 }
 
-function getCompoundInterval(frequency: compoundFrequency) {
+function getCompoundInterval(frequency: CompoundFrequency) {
   switch (frequency) {
     case "monthly":
       return 1;
