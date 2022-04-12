@@ -4,7 +4,11 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        serif: ["Playfair Display", "serif"],
+      },
+    },
   },
   plugins: [require("@tailwindcss/forms")],
 };
